@@ -28,6 +28,9 @@
         .content {
             padding: 2em;
         }
+        .hidden {
+            display: none;
+        }
         .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -69,9 +72,9 @@
 <body>
     <nav>
         <div>
-            <a href="#about">About Me</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact Me</a>
+            <a href="#about" onclick="showPage('about')">About Me</a>
+            <a href="#projects" onclick="showPage('projects')">Projects</a>
+            <a href="#contact" onclick="showPage('contact')">Contact Me</a>
         </div>
     </nav>
 
@@ -80,7 +83,7 @@
         <p>Hello! I am [Your Name], a passionate developer with expertise in [Your Skills/Fields]. Welcome to my portfolio website!</p>
     </div>
 
-    <div id="projects" class="content">
+    <div id="projects" class="content hidden">
         <h1>Projects</h1>
         <div class="project-grid">
             <div class="project">
@@ -99,7 +102,7 @@
         </div>
     </div>
 
-    <div id="contact" class="content">
+    <div id="contact" class="content hidden">
         <h1>Contact Me</h1>
         <form class="contact-form">
             <input type="text" name="name" placeholder="Your Name" required>
@@ -108,6 +111,13 @@
             <button type="submit">Send Message</button>
         </form>
     </div>
+
+    <script>
+        function showPage(pageId) {
+            const sections = document.querySelectorAll('.content');
+            sections.forEach(section => section.classList.add('hidden'));
+            document.getElementById(pageId).classList.remove('hidden');
+        }
+    </script>
 </body>
 </html>
-
