@@ -6,30 +6,52 @@
     <title>My Portfolio</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Press Start 2P', Arial, sans-serif;
             margin: 0;
             padding: 0;
+            animation: gradientBackground 10s infinite alternate;
+            background: linear-gradient(45deg, #1e3c72, #2a5298, #1e3c72);
+            background-size: 400% 400%;
+        }
+        @keyframes gradientBackground {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
         }
         nav {
-            background-color: #333;
+            background-color: rgba(0, 0, 0, 0.8);
             color: white;
             padding: 1em;
             display: flex;
             justify-content: space-between;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
         nav a {
             color: white;
             text-decoration: none;
             margin: 0 1em;
+            transition: color 0.3s;
         }
         nav a:hover {
-            text-decoration: underline;
+            color: #ffcc00;
         }
         .content {
             padding: 2em;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.5s forwards;
         }
         .hidden {
             display: none;
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         .project-grid {
             display: grid;
@@ -38,49 +60,50 @@
             margin-top: 2em;
         }
         .project {
-            border: 1px solid #ddd;
+            border: 2px solid rgba(255, 255, 255, 0.5);
             padding: 1em;
             border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
         }
         .project img {
             max-width: 100%;
             height: auto;
             border-radius: 8px;
         }
+        .project:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+        }
         .project-details {
             padding: 2em;
-            border: 1px solid #ddd;
+            border: 2px solid rgba(255, 255, 255, 0.5);
             border-radius: 8px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
             margin-top: 2em;
-        }
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 1em;
-            max-width: 400px;
-            margin: 0 auto;
-            font-size: 1.2em;
-        }
-        .contact-info a {
-            color: #333;
-            text-decoration: none;
-        }
-        .contact-info a:hover {
-            text-decoration: underline;
         }
         .back-button {
             display: inline-block;
             margin-top: 1em;
             padding: 0.5em 1em;
-            background-color: #333;
+            background: linear-gradient(90deg, #ff7e5f, #feb47b);
             color: white;
             text-decoration: none;
             border-radius: 5px;
+            font-size: 1em;
+            transition: background 0.3s;
         }
         .back-button:hover {
-            background-color: #555;
+            background: linear-gradient(90deg, #feb47b, #ff7e5f);
+        }
+        h1, h2 {
+            color: #ffcc00;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav>
@@ -136,19 +159,18 @@
         </div>
     </div>
 
-    <!-- Project Details Section -->
     <div id="project1" class="content hidden project-details">
         <h1>Twine Game 1</h1>
-        <img src="https://via.placeholder.com/600" alt="Twine Game Preview">
-        <p>A Twine game exploring an interactive narrative experience.</p>
+        <img src="https://via.placeholder.com/600" alt="Twine Game 1 Preview">
+        <p>An interactive narrative game created using Twine.</p>
         <a href="game1.html" target="_blank">Play Twine Game 1</a>
         <a href="#" class="back-button" onclick="showPage('projects')">Back to Projects</a>
     </div>
 
     <div id="project2" class="content hidden project-details">
         <h1>Twine Game 2</h1>
-        <img src="https://via.placeholder.com/600" alt="Twine Game Preview">
-        <p>A second Twine game focused on storytelling.</p>
+        <img src="https://via.placeholder.com/600" alt="Twine Game 2 Preview">
+        <p>A narrative-driven game exploring complex themes.</p>
         <a href="game2.html" target="_blank">Play Twine Game 2</a>
         <a href="#" class="back-button" onclick="showPage('projects')">Back to Projects</a>
     </div>
@@ -156,15 +178,15 @@
     <div id="project3" class="content hidden project-details">
         <h1>Figma Prototype</h1>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/example" title="Figma Prototype" frameborder="0" allowfullscreen></iframe>
-        <p>A software prototype designed in Figma.</p>
+        <p>A software prototype showcasing user interface design.</p>
         <a href="#" class="back-button" onclick="showPage('projects')">Back to Projects</a>
     </div>
 
     <div id="project4" class="content hidden project-details">
         <h1>Board Game Prototype</h1>
         <img src="https://via.placeholder.com/600" alt="Board Game Preview">
-        <img src="https://via.placeholder.com/600" alt="Sell Sheet">
-        <p>A custom-designed board game with accompanying sell sheet.</p>
+        <img src="https://via.placeholder.com/600" alt="Board Game Sell Sheet">
+        <p>A custom-designed board game with a detailed sell sheet.</p>
         <a href="#" class="back-button" onclick="showPage('projects')">Back to Projects</a>
     </div>
 
@@ -172,7 +194,7 @@
         <h1>Unreal FPS Prototype</h1>
         <img src="https://via.placeholder.com/600" alt="FPS Gameplay">
         <img src="https://via.placeholder.com/600" alt="Level Design Document">
-        <p>An FPS prototype created using Unreal Engine.</p>
+        <p>An FPS prototype featuring immersive gameplay and detailed level design.</p>
         <a href="fps_design_document.pdf" target="_blank">View Design Document</a>
         <a href="#" class="back-button" onclick="showPage('projects')">Back to Projects</a>
     </div>
@@ -181,7 +203,7 @@
         <h1>Unreal Tower Defense</h1>
         <img src="https://via.placeholder.com/600" alt="Tower Defense Gameplay">
         <img src="https://via.placeholder.com/600" alt="Level Design Document">
-        <p>A tower defense prototype created using Unreal Engine.</p>
+        <p>A tower defense prototype with strategic gameplay and complex levels.</p>
         <a href="tower_defense_design_document.pdf" target="_blank">View Design Document</a>
         <a href="#" class="back-button" onclick="showPage('projects')">Back to Projects</a>
     </div>
@@ -191,7 +213,7 @@
         <img src="https://via.placeholder.com/600" alt="Unity Scene 1">
         <img src="https://via.placeholder.com/600" alt="Unity Scene 2">
         <img src="https://via.placeholder.com/600" alt="Unity Scene 3">
-        <p>A scene designed in Unity showcasing various environmental elements.</p>
+        <p>A Unity project showcasing environmental design and scene setup.</p>
         <a href="#" class="back-button" onclick="showPage('projects')">Back to Projects</a>
     </div>
 
