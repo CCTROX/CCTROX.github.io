@@ -47,6 +47,12 @@
             height: auto;
             border-radius: 8px;
         }
+        .project-details {
+            padding: 2em;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-top: 2em;
+        }
         .contact-info {
             display: flex;
             flex-direction: column;
@@ -61,6 +67,18 @@
         }
         .contact-info a:hover {
             text-decoration: underline;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 1em;
+            padding: 0.5em 1em;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back-button:hover {
+            background-color: #555;
         }
     </style>
 </head>
@@ -87,20 +105,94 @@
     <div id="projects" class="content hidden">
         <h1>Projects</h1>
         <div class="project-grid">
-            <div class="project">
-                <img src="https://via.placeholder.com/300" alt="Project 1">
-                <h2>Project 1</h2>
-                <p>Description of Project 1.</p>
-                <a href="#">View Project</a>
+            <div class="project" onclick="showDetails('project1')">
+                <img src="https://via.placeholder.com/300" alt="Twine Game 1">
+                <h2>Twine Game 1</h2>
             </div>
-            <div class="project">
-                <img src="https://via.placeholder.com/300" alt="Project 2">
-                <h2>Project 2</h2>
-                <p>Description of Project 2.</p>
-                <a href="#">View Project</a>
+            <div class="project" onclick="showDetails('project2')">
+                <img src="https://via.placeholder.com/300" alt="Twine Game 2">
+                <h2>Twine Game 2</h2>
             </div>
-            <!-- Add more project divs below for the other projects -->
+            <div class="project" onclick="showDetails('project3')">
+                <img src="https://via.placeholder.com/300" alt="Figma Prototype">
+                <h2>Figma Prototype</h2>
+            </div>
+            <div class="project" onclick="showDetails('project4')">
+                <img src="https://via.placeholder.com/300" alt="Board Game Prototype">
+                <h2>Board Game Prototype</h2>
+            </div>
+            <div class="project" onclick="showDetails('project5')">
+                <img src="https://via.placeholder.com/300" alt="Unreal FPS Prototype">
+                <h2>Unreal FPS Prototype</h2>
+            </div>
+            <div class="project" onclick="showDetails('project6')">
+                <img src="https://via.placeholder.com/300" alt="Unreal Tower Defense">
+                <h2>Unreal Tower Defense</h2>
+            </div>
+            <div class="project" onclick="showDetails('project7')">
+                <img src="https://via.placeholder.com/300" alt="Unity Scene">
+                <h2>Unity Scene</h2>
+            </div>
         </div>
+    </div>
+
+    <!-- Project Details Section -->
+    <div id="project1" class="content hidden project-details">
+        <h1>Twine Game 1</h1>
+        <img src="https://via.placeholder.com/600" alt="Twine Game Preview">
+        <p>A Twine game exploring an interactive narrative experience.</p>
+        <a href="game1.html" target="_blank">Play Twine Game 1</a>
+        <a href="#" class="back-button" onclick="showPage('projects')">Back to Projects</a>
+    </div>
+
+    <div id="project2" class="content hidden project-details">
+        <h1>Twine Game 2</h1>
+        <img src="https://via.placeholder.com/600" alt="Twine Game Preview">
+        <p>A second Twine game focused on storytelling.</p>
+        <a href="game2.html" target="_blank">Play Twine Game 2</a>
+        <a href="#" class="back-button" onclick="showPage('projects')">Back to Projects</a>
+    </div>
+
+    <div id="project3" class="content hidden project-details">
+        <h1>Figma Prototype</h1>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/example" title="Figma Prototype" frameborder="0" allowfullscreen></iframe>
+        <p>A software prototype designed in Figma.</p>
+        <a href="#" class="back-button" onclick="showPage('projects')">Back to Projects</a>
+    </div>
+
+    <div id="project4" class="content hidden project-details">
+        <h1>Board Game Prototype</h1>
+        <img src="https://via.placeholder.com/600" alt="Board Game Preview">
+        <img src="https://via.placeholder.com/600" alt="Sell Sheet">
+        <p>A custom-designed board game with accompanying sell sheet.</p>
+        <a href="#" class="back-button" onclick="showPage('projects')">Back to Projects</a>
+    </div>
+
+    <div id="project5" class="content hidden project-details">
+        <h1>Unreal FPS Prototype</h1>
+        <img src="https://via.placeholder.com/600" alt="FPS Gameplay">
+        <img src="https://via.placeholder.com/600" alt="Level Design Document">
+        <p>An FPS prototype created using Unreal Engine.</p>
+        <a href="fps_design_document.pdf" target="_blank">View Design Document</a>
+        <a href="#" class="back-button" onclick="showPage('projects')">Back to Projects</a>
+    </div>
+
+    <div id="project6" class="content hidden project-details">
+        <h1>Unreal Tower Defense</h1>
+        <img src="https://via.placeholder.com/600" alt="Tower Defense Gameplay">
+        <img src="https://via.placeholder.com/600" alt="Level Design Document">
+        <p>A tower defense prototype created using Unreal Engine.</p>
+        <a href="tower_defense_design_document.pdf" target="_blank">View Design Document</a>
+        <a href="#" class="back-button" onclick="showPage('projects')">Back to Projects</a>
+    </div>
+
+    <div id="project7" class="content hidden project-details">
+        <h1>Unity Scene</h1>
+        <img src="https://via.placeholder.com/600" alt="Unity Scene 1">
+        <img src="https://via.placeholder.com/600" alt="Unity Scene 2">
+        <img src="https://via.placeholder.com/600" alt="Unity Scene 3">
+        <p>A scene designed in Unity showcasing various environmental elements.</p>
+        <a href="#" class="back-button" onclick="showPage('projects')">Back to Projects</a>
     </div>
 
     <div id="contact" class="content hidden">
@@ -118,6 +210,10 @@
             const sections = document.querySelectorAll('.content');
             sections.forEach(section => section.classList.add('hidden'));
             document.getElementById(pageId).classList.remove('hidden');
+        }
+
+        function showDetails(projectId) {
+            showPage(projectId);
         }
     </script>
 </body>
