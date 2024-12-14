@@ -19,6 +19,10 @@
             padding: 1em;
             display: flex;
             justify-content: space-between;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
         nav a {
@@ -31,7 +35,7 @@
             color: #999;
         }
         .content {
-            padding: 2em;
+            padding: 5em 2em 2em;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeIn 0.5s forwards;
@@ -85,7 +89,7 @@
         .back-button {
             font-family: 'Press Start 2P', 'Roboto', sans-serif;
             display: inline-block;
-            margin-top: 1em;
+            margin: 1em 0;
             padding: 0.5em 1em;
             background: #000;
             color: #fff;
@@ -93,6 +97,9 @@
             border-radius: 5px;
             font-size: 1em;
             transition: background 0.3s, color 0.3s;
+            position: absolute;
+            right: 20px;
+            top: 10px;
         }
         .back-button:hover {
             background: #333;
@@ -102,6 +109,21 @@
             font-family: 'Press Start 2P', sans-serif;
             color: #fff;
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        }
+        .button {
+            font-family: 'Roboto', sans-serif;
+            display: inline-block;
+            padding: 0.5em 1em;
+            background: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1em;
+            margin-top: 1em;
+            transition: background 0.3s;
+        }
+        .button:hover {
+            background: #0056b3;
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -180,60 +202,61 @@
 
     <div id="project1" class="content hidden project-details">
         <h1>Twine Game 1</h1>
+        <a href="#" class="back-button" onclick="showPage('projects')">Back to Collection</a>
         <img src="https://via.placeholder.com/600" alt="Twine Game 1 Preview">
         <p>An interactive narrative game created using Twine.</p>
-        <a href="game1.html" target="_blank">Play Twine Game 1</a>
-        <a href="#" class="back-button" onclick="showPage('projects')">Back to Projects</a>
+        <a href="game1.html" target="_blank" class="button">Play Game</a>
     </div>
 
     <div id="project2" class="content hidden project-details">
         <h1>Twine Game 2</h1>
+        <a href="#" class="back-button" onclick="showPage('projects')">Back to Collection</a>
         <img src="https://via.placeholder.com/600" alt="Twine Game 2 Preview">
         <p>A narrative-driven game exploring complex themes.</p>
-        <a href="game2.html" target="_blank">Play Twine Game 2</a>
-        <a href="#" class="back-button" onclick="showPage('projects')">Back to Projects</a>
+        <a href="game2.html" target="_blank" class="button">Play Game</a>
     </div>
 
     <div id="project3" class="content hidden project-details">
         <h1>Figma Prototype</h1>
+        <a href="#" class="back-button" onclick="showPage('projects')">Back to Collection</a>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/example" title="Figma Prototype" frameborder="0" allowfullscreen></iframe>
         <p>A software prototype showcasing user interface design.</p>
-        <a href="#" class="back-button" onclick="showPage('projects')">Back to Projects</a>
+        <a href="https://www.figma.com/proto/YuUZotf1yUbTqbdsh3eNgI/Mate?node-id=1-4&p=t=lpHnp7TZ2wwLLdgg-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A4" target="_blank" class="button">Try The App</a>
     </div>
 
     <div id="project4" class="content hidden project-details">
         <h1>Board Game Prototype</h1>
+        <a href="#" class="back-button" onclick="showPage('projects')">Back to Collection</a>
         <img src="https://via.placeholder.com/600" alt="Board Game Preview">
         <img src="https://via.placeholder.com/600" alt="Board Game Sell Sheet">
         <p>A custom-designed board game with a detailed sell sheet.</p>
-        <a href="#" class="back-button" onclick="showPage('projects')">Back to Projects</a>
     </div>
 
     <div id="project5" class="content hidden project-details">
         <h1>Unreal FPS Prototype</h1>
+        <a href="#" class="back-button" onclick="showPage('projects')">Back to Collection</a>
         <img src="https://via.placeholder.com/600" alt="FPS Gameplay">
         <img src="https://via.placeholder.com/600" alt="Level Design Document">
         <p>An FPS prototype featuring immersive gameplay and detailed level design.</p>
-        <a href="fps_design_document.pdf" target="_blank">View Design Document</a>
-        <a href="#" class="back-button" onclick="showPage('projects')">Back to Projects</a>
+        <a href="fps_design_document.pdf" target="_blank" class="button">View Design Document</a>
     </div>
 
     <div id="project6" class="content hidden project-details">
         <h1>Unreal Tower Defense</h1>
+        <a href="#" class="back-button" onclick="showPage('projects')">Back to Collection</a>
         <img src="https://via.placeholder.com/600" alt="Tower Defense Gameplay">
         <img src="https://via.placeholder.com/600" alt="Level Design Document">
         <p>A tower defense prototype with strategic gameplay and complex levels.</p>
-        <a href="tower_defense_design_document.pdf" target="_blank">View Design Document</a>
-        <a href="#" class="back-button" onclick="showPage('projects')">Back to Projects</a>
+        <a href="tower_defense_design_document.pdf" target="_blank" class="button">View Design Document</a>
     </div>
 
     <div id="project7" class="content hidden project-details">
         <h1>Unity Scene</h1>
+        <a href="#" class="back-button" onclick="showPage('projects')">Back to Collection</a>
         <img src="https://via.placeholder.com/600" alt="Unity Scene 1">
         <img src="https://via.placeholder.com/600" alt="Unity Scene 2">
         <img src="https://via.placeholder.com/600" alt="Unity Scene 3">
         <p>A Unity project showcasing environmental design and scene setup.</p>
-        <a href="#" class="back-button" onclick="showPage('projects')">Back to Projects</a>
     </div>
 
     <div id="contact" class="content hidden">
