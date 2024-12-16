@@ -315,15 +315,28 @@
 </div>
 
     <script>
-        function showPage(pageId) {
-            const sections = document.querySelectorAll('.content');
-            sections.forEach(section => section.classList.add('hidden'));
-            document.getElementById(pageId).classList.remove('hidden');
-        }
+    function showPage(pageId) {
+        const sections = document.querySelectorAll('.content');
+        const iframes = document.querySelectorAll('iframe');
 
-        function showDetails(projectId) {
-            showPage(projectId);
-        }
+        // Stop videos by resetting iframe src
+        iframes.forEach(iframe => {
+            const src = iframe.src; // Store the current src
+            iframe.src = ''; // Clear the src to stop the video
+            iframe.src = src; // Restore the src for reuse
+        });
+
+        // Hide all sections
+        sections.forEach(section => section.classList.add('hidden'));
+
+        // Show the selected page
+        document.getElementById(pageId).classList.remove('hidden');
+    }
+
+    function showDetails(projectId) {
+        showPage(projectId);
+    }
     </script>
+
 </body>
 </html>
