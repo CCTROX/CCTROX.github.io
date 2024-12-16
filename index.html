@@ -326,6 +326,8 @@
             iframe.src = src; // Restore the src for reuse
         });
 
+        window.scrollTo(0, 0);
+
         // Hide all sections
         sections.forEach(section => section.classList.add('hidden'));
 
